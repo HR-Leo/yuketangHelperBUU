@@ -6,7 +6,15 @@ import get_info
 from videoHelper import videoHelper
 from homeworkHelper import homeworkHelper
 
-domain = input("输入雨课堂域名：(BUU输入buu.yuketang.cn)")
+# cookie文件地址"C:\Users\DELL\AppData\Local\Google\Chrome\User Data\Default\Network\Cookies"
+is_sustech = input(
+        "是SusTech吗, 是请输入1, 否则直接回车: "
+    )
+
+if is_sustech == "1":
+    domain = "sustc.yuketang.cn"
+else:
+    domain = input("输入雨课堂域名：(SusTech输入sustc.yuketang.cn)")
 cookies = get_info.getCookies(domain)
 csrftoken, sessionid = get_info.extract_specific_cookies(cookies)  # 需改成自己的
 university_id = get_info.getUniversityId(domain)  # 需改成自己的
