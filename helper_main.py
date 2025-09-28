@@ -8,7 +8,7 @@ from homeworkHelper import homeworkHelper
 
 # cookie文件地址"C:\Users\DELL\AppData\Local\Google\Chrome\User Data\Default\Network\Cookies"
 is_sustech = input(
-        "是SusTech吗, 是请输入1, 否则直接回车: "
+        "是SUSTech吗, 是请输入1, 否则直接回车: "
     )
 
 if is_sustech == "1":
