@@ -44,7 +44,7 @@ def getWebSocketInfo(domain):
 
 def getCookies(domain):
     is_cached = input(
-        "是否用已有cookies?是输入1(否则会将原来的cookies以新获得cookies覆盖)"
+        "是否用已有cookies?是输入1, 否则直接回车(会将原来的cookies以新获得cookies覆盖)"
     )
     if is_cached == "1":
         filename = input("请输入cookies文件名:")
@@ -79,7 +79,10 @@ def getCookies(domain):
         verify_form = {"auth": auth_info, "origin_user_id": str(user_id)}
         response = requests.post(verify_url, json=verify_form, headers=verify_header)
         cookie = response.headers.get("Set-Cookie")
-        filename = input("请输入cookies文件名:")
+        print("请输入cookies文件地址:")
+        print("(cookie文件地址一般为: C:\\Users\\XXX\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Network\\Cookies)")
+        print("(XXX为用户名)")
+        filename = input("cookies文件地址为: ")
         ck_write = open(filename + ".txt", "w")
         ck_write.write(cookie)
     return cookie
